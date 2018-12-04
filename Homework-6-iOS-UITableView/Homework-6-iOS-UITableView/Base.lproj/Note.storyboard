@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJN-rQ-lmu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table Note View Controller-->
+        <scene sceneID="Fym-lo-x1n">
+            <objects>
+                <viewController storyboardIdentifier="TableNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FJN-rQ-lmu" customClass="TableNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qqp-0U-Eyd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView1" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-rX-sBT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нотатки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGw-ka-Lju">
+                                <rect key="frame" x="40" y="40" width="123" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="xTk-jJ-8pC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUP-yJ-fFi">
+                                <rect key="frame" x="299" y="40" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="B9d-AU-QfC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButton:" destination="FJN-rQ-lmu" eventType="touchUpInside" id="eK9-PA-23h"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-TO-Quz">
+                                <rect key="frame" x="15" y="96" width="345" height="556"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FJN-rQ-lmu" id="bU2-dB-5tE"/>
+                                    <outlet property="delegate" destination="FJN-rQ-lmu" id="c6H-b8-9a7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="NfU-TO-Quz" secondAttribute="trailing" constant="15" id="8fG-wr-n64"/>
+                            <constraint firstItem="NfU-TO-Quz" firstAttribute="top" secondItem="fUP-yJ-fFi" secondAttribute="bottom" constant="20" id="Zs8-a0-LGg"/>
+                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="oP4-rX-sBT" secondAttribute="trailing" id="a4a-B6-WFX"/>
+                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="fUP-yJ-fFi" secondAttribute="trailing" constant="40" id="ajE-I5-oUz"/>
+                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="bottom" secondItem="oP4-rX-sBT" secondAttribute="bottom" id="cfO-eJ-11X"/>
+                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="bottom" secondItem="NfU-TO-Quz" secondAttribute="bottom" constant="15" id="cnM-Yn-Go9"/>
+                            <constraint firstItem="hGw-ka-Lju" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" constant="40" id="dnf-Qi-gUx"/>
+                            <constraint firstItem="oP4-rX-sBT" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" id="fj0-HJ-Ucc"/>
+                            <constraint firstItem="NfU-TO-Quz" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" constant="15" id="h5I-jC-wNQ"/>
+                            <constraint firstItem="oP4-rX-sBT" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" id="jrn-r0-9Sb"/>
+                            <constraint firstItem="fUP-yJ-fFi" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" constant="20" id="lS6-Jy-JUp"/>
+                            <constraint firstItem="hGw-ka-Lju" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" constant="20" id="yvG-9G-dYR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tkk-fV-dSj"/>
+                    </view>
+                    <connections>
+                        <outlet property="noteTableView" destination="NfU-TO-Quz" id="NfE-ns-vyf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R3C-1k-doX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="29.23538230884558"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backgroundView1" width="192" height="288"/>
+    </resources>
+</document>
