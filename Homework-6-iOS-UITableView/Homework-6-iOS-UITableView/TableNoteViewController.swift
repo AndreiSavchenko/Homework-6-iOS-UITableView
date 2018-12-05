@@ -55,7 +55,7 @@ extension TableNoteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = noteTableView.dequeueReusableCell(withIdentifier: "MyNoteCell", for: indexPath)
+        let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
         
         let Rand = Int.random(in: 0...2)
         

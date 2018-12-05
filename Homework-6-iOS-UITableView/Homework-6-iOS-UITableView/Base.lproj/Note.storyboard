@@ -40,17 +40,14 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="addButton:" destination="FJN-rQ-lmu" eventType="touchUpInside" id="eK9-PA-23h"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-TO-Quz">
                                 <rect key="frame" x="15" y="96" width="345" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="FJN-rQ-lmu" id="bU2-dB-5tE"/>
-                                    <outlet property="delegate" destination="FJN-rQ-lmu" id="c6H-b8-9a7"/>
+                                    <outlet property="dataSource" destination="FJN-rQ-lmu" id="eTq-ah-1Lr"/>
+                                    <outlet property="delegate" destination="FJN-rQ-lmu" id="CNt-xN-wbV"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -72,7 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="Tkk-fV-dSj"/>
                     </view>
                     <connections>
-                        <outlet property="noteTableView" destination="NfU-TO-Quz" id="NfE-ns-vyf"/>
+                        <outlet property="noteTableView" destination="NfU-TO-Quz" id="T3T-LW-AxU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3C-1k-doX" userLabel="First Responder" sceneMemberID="firstResponder"/>
