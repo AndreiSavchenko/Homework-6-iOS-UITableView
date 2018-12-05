@@ -23,11 +23,15 @@ class TableNoteViewController: UIViewController {
     let descriptionTipsArr: [String] = ["Лин, послушай старших: оставь искусство! Действуй по плану «А» — хватайся за первого попавшегося богача.",
                                         "Ой-ой-ой, стоит только указать кому-нибудь на прореху в его мировоззрении, и он сразу обижается.",
                                         "— И не вини себя.\n— А я и не виню.\n— Значит, ты слушал меня невнимательно."]
+    var sectionNote: [String] = ["Все нотатки", "Выбранные"]
     
-    @IBAction func addButton(_ sender: UIButton) {
-        rowAdd += 1
-        print(rowAdd)
+    struct Note {
+        var title = String()
+        var createdDate = String()
+        var description = String()
     }
+    
+    var allNoteArr = [Note]()
     
     func dateCurrent() -> String {
         let date = NSDate()
@@ -35,6 +39,45 @@ class TableNoteViewController: UIViewController {
         dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
         return dateFormatter.string(from: date as Date)
     }
+    
+    @IBAction func addButton(_ sender: UIButton) {
+        
+        let Rand = Int.random(in: 0...2)
+        var titleInNote, dateInNote, descriptionInNote: String
+        
+        titleInNote = titleArr[Rand]
+        dateInNote = dateCurrent()
+        
+        switch Rand {
+        case 1:
+            descriptionInNote = descriptionFoodArr[Rand]
+        case 2:
+            descriptionInNote = descriptionTipsArr[Rand]
+        default:
+            descriptionInNote = descriptionLoveArr[Rand]
+        }
+
+        let oneNote = Note.init(title: titleInNote, createdDate: dateInNote, description: descriptionInNote)
+        
+        print(oneNote)
+        self.add(oneNote)
+        noteTableView.reloadData()
+        
+        
+//        rowAdd += 1
+//        noteTableView.reloadData()
+//        print(rowAdd)
+    }
+    
+    func add(_ oneNote: TableNoteViewController.Note) {
+        let index = 0
+        allNoteArr.insert(oneNote, at: index)
+        
+//        let indexPath = IndexPath(row: index, section: 0)
+//        noteTableView.insertRows(at: [indexPath], with: .left)
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,35 +92,32 @@ class TableNoteViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension TableNoteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("func return RowAdd = \(rowAdd)")
-        return 5
+        return allNoteArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let labelSection = UILabel()
+        labelSection.text = sectionNote[section]
+        labelSection.backgroundColor = UIColor.black
+        return labelSection.text
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionNote.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
         
-        let Rand = Int.random(in: 0...2)
-        
         if let myTitleCellTextField = cell.viewWithTag(1) as? UITextField {
-                myTitleCellTextField.text = titleArr[Rand]
+                myTitleCellTextField.text = allNoteArr[indexPath.row].title
             }
         if let myDateLabel = cell.viewWithTag(2) as? UILabel {
-                myDateLabel.text = dateCurrent()
+                myDateLabel.text = allNoteArr[indexPath.row].createdDate
             }
-        switch Rand {
-            case 1:
-                if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
-                    myDescriptionLabel.text = descriptionFoodArr[Rand]
-                }
-            case 2:
-                if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
-                    myDescriptionLabel.text = descriptionTipsArr[Rand]
-                }
-            default:
-                if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
-                    myDescriptionLabel.text = descriptionLoveArr[Rand]
-                }
+        if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
+                myDescriptionLabel.text = allNoteArr[indexPath.row].description
             }
         return cell
     }
