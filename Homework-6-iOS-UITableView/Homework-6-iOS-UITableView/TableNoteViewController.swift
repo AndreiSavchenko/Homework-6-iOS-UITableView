@@ -32,6 +32,7 @@ class TableNoteViewController: UIViewController {
     }
     
     var allNoteArr = [Note]()
+    var selectedNoteArr = [Note]()
     
     func dateCurrent() -> String {
         let date = NSDate()
@@ -59,25 +60,14 @@ class TableNoteViewController: UIViewController {
 
         let oneNote = Note.init(title: titleInNote, createdDate: dateInNote, description: descriptionInNote)
         
-        print(oneNote)
-        self.add(oneNote)
+        self.addAllNote(oneNote)
         noteTableView.reloadData()
-        
-        
-//        rowAdd += 1
-//        noteTableView.reloadData()
-//        print(rowAdd)
     }
     
-    func add(_ oneNote: TableNoteViewController.Note) {
+    func addAllNote(_ oneNote: TableNoteViewController.Note) {
         let index = 0
         allNoteArr.insert(oneNote, at: index)
-        
-//        let indexPath = IndexPath(row: index, section: 0)
-//        noteTableView.insertRows(at: [indexPath], with: .left)
     }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,9 +80,14 @@ class TableNoteViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension TableNoteViewController: UITableViewDataSource {
+extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allNoteArr.count
+        if section == 0 {
+            return allNoteArr.count
+        } else {
+            print("+++ 3 selectedNoteArr.count = \(selectedNoteArr.count)")
+            return selectedNoteArr.count
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -108,23 +103,61 @@ extension TableNoteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
-        
-        if let myTitleCellTextField = cell.viewWithTag(1) as? UITextField {
+        if indexPath.section == 0 {
+            let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
+            
+            if let myTitleCellTextField = cell.viewWithTag(1) as? UITextField {
                 myTitleCellTextField.text = allNoteArr[indexPath.row].title
             }
-        if let myDateLabel = cell.viewWithTag(2) as? UILabel {
+            if let myDateLabel = cell.viewWithTag(2) as? UILabel {
                 myDateLabel.text = allNoteArr[indexPath.row].createdDate
             }
-        if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
+            if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
                 myDescriptionLabel.text = allNoteArr[indexPath.row].description
             }
-        return cell
+            return cell
+        } else {
+            let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
+            
+            if let myTitleCellTextField = cell.viewWithTag(1) as? UITextField {
+                myTitleCellTextField.text = selectedNoteArr[indexPath.row].title
+            }
+            if let myDateLabel = cell.viewWithTag(2) as? UILabel {
+                myDateLabel.text = selectedNoteArr[indexPath.row].createdDate
+            }
+            if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
+                myDescriptionLabel.text = selectedNoteArr[indexPath.row].description
+            }
+            return cell
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            allNoteArr.remove(at: indexPath.row)
+            
+            noteTableView.beginUpdates()
+            noteTableView.deleteRows(at: [indexPath], with: .automatic)
+            noteTableView.endUpdates()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected section = \(indexPath.section), row = \(indexPath.row)")
+        print("+++ 1 selectedNoteArr.count = \(selectedNoteArr.count)")
+        if indexPath.section == 0 {
+            noteTableView.beginUpdates()
+            
+            selectedNoteArr.append(allNoteArr[indexPath.row])
+            print("+++ 2 selectedNoteArr.count = \(selectedNoteArr.count)")
+            allNoteArr.remove(at: indexPath.row)
+            noteTableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            noteTableView.endUpdates()
+        }
+//        else {
+//
+//        }
     }
 }
-
-//extension TableNoteViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Selected \(indexPath.row)")
-//    }
-//}
