@@ -66,20 +66,36 @@
 		4D6CA3D721B1FC640020FDCF /* Homework-6-iOS-UITableView */ = {
 			isa = PBXGroup;
 			children = (
-				4D6CA3D821B1FC640020FDCF /* AppDelegate.swift */,
-				4D6CA3DA21B1FC640020FDCF /* TableNoteViewController.swift */,
-				4DCCB25021B95F1800DFC019 /* Calendar.storyboard */,
-				4DCCB25821B9743A00DFC019 /* SectionHeaderView.swift */,
-				4DCCB25621B964B200DFC019 /* CalendarCollectionViewCell.swift */,
-				4DCCB25421B9641900DFC019 /* CalendarCollectionViewController.swift */,
-				4D6CA3DC21B1FC640020FDCF /* Note.storyboard */,
+				4DCCB25B21BA6DE400DFC019 /* Note */,
+				4DCCB25A21BA6DAF00DFC019 /* Calendar */,
 				4D6CA3DF21B1FC660020FDCF /* Assets.xcassets */,
+				4D6CA3D821B1FC640020FDCF /* AppDelegate.swift */,
 				4D6CA3E121B1FC660020FDCF /* LaunchScreen.storyboard */,
 				4D6CA3E421B1FC660020FDCF /* Info.plist */,
-				4D6CA3EA21B59BE90020FDCF /* NoteXibTableViewCell.swift */,
-				4D6CA3EB21B59BE90020FDCF /* NoteXibTableViewCell.xib */,
 			);
 			path = "Homework-6-iOS-UITableView";
+			sourceTree = "<group>";
+		};
+		4DCCB25A21BA6DAF00DFC019 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				4DCCB25421B9641900DFC019 /* CalendarCollectionViewController.swift */,
+				4DCCB25821B9743A00DFC019 /* SectionHeaderView.swift */,
+				4DCCB25621B964B200DFC019 /* CalendarCollectionViewCell.swift */,
+				4DCCB25021B95F1800DFC019 /* Calendar.storyboard */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		4DCCB25B21BA6DE400DFC019 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				4D6CA3EA21B59BE90020FDCF /* NoteXibTableViewCell.swift */,
+				4D6CA3EB21B59BE90020FDCF /* NoteXibTableViewCell.xib */,
+				4D6CA3DA21B1FC640020FDCF /* TableNoteViewController.swift */,
+				4D6CA3DC21B1FC640020FDCF /* Note.storyboard */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

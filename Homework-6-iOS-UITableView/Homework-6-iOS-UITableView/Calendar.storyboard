@@ -51,7 +51,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CalendarHeaderSectionView" id="f7T-eM-vNq" customClass="SectionHeaderView" customModule="Homework_6_iOS_UITableView" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="f7T-eM-vNq" customClass="SectionHeaderView" customModule="Homework_6_iOS_UITableView" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>

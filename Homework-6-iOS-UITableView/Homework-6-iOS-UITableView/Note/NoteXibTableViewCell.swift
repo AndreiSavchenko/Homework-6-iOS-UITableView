@@ -14,4 +14,5 @@ class NoteXibTableViewCell: UITableViewCell {
     @IBOutlet weak var myTitleCellTextField: UITextField!
     @IBOutlet weak var myDateLabel: UILabel!
     @IBOutlet weak var myDescriptionLabel: UILabel!
+    
     }

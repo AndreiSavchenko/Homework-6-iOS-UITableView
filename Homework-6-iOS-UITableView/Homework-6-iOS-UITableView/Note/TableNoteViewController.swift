@@ -36,7 +36,7 @@ class TableNoteViewController: UIViewController {
     func dateCurrent() -> String {
         let date = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
+        dateFormatter.dateFormat = "dd.MM hh:mm:ss"
         return dateFormatter.string(from: date as Date)
     }
     
@@ -89,14 +89,16 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    //????????????????????????????
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let labelSection = UILabel()
         labelSection.text = sectionNote[section]
-        labelSection.backgroundColor = UIColor.black
         return labelSection.text
     }
-    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let labelSection = UILabel()
+//        labelSection.backgroundColor = UIColor.green
+//        return labelSection
+//    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionNote.count
     }
@@ -112,15 +114,10 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = noteTableView.dequeueReusableCell(withIdentifier: NoteXibTableViewCell.reuseIdentifier, for: indexPath)
         
-        if let myTitleCellTextField = cell.viewWithTag(1) as? UITextField {
-            myTitleCellTextField.text = theArr.title
-        }
-        if let myDateLabel = cell.viewWithTag(2) as? UILabel {
-            myDateLabel.text = theArr.createdDate
-        }
-        if let myDescriptionLabel = cell.viewWithTag(3) as? UILabel {
-            myDescriptionLabel.text = theArr.description
-        }
+        (cell as? NoteXibTableViewCell)?.myTitleCellTextField.text = theArr.title
+        (cell as? NoteXibTableViewCell)?.myDateLabel.text = theArr.createdDate
+        (cell as? NoteXibTableViewCell)?.myDescriptionLabel.text = theArr.description
+
         return cell
     }
     
