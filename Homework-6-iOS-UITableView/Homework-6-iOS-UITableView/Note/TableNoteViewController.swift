@@ -81,6 +81,7 @@ class TableNoteViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return allNoteArr.count
@@ -89,16 +90,19 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let labelSection = UILabel()
+//        labelSection.text = sectionNote[section]
+//        return labelSection.text
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let labelSection = UILabel()
         labelSection.text = sectionNote[section]
-        return labelSection.text
+        labelSection.backgroundColor = UIColor.green
+        return labelSection
     }
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let labelSection = UILabel()
-//        labelSection.backgroundColor = UIColor.green
-//        return labelSection
-//    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionNote.count
     }
@@ -143,4 +147,6 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         }
         noteTableView.reloadData()
     }
+    
+    
 }

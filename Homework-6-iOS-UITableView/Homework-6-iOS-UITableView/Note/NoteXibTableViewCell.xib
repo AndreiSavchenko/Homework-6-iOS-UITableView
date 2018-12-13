@@ -68,7 +68,7 @@
                 <outlet property="myDescriptionLabel" destination="RTP-Bp-IY5" id="pJt-s3-gdE"/>
                 <outlet property="myTitleCellTextField" destination="dsI-Ss-xln" id="yRh-NE-ak6"/>
             </connections>
-            <point key="canvasLocation" x="-42.399999999999999" y="38.23088455772114"/>
+            <point key="canvasLocation" x="-43.200000000000003" y="37.781109445277366"/>
         </tableViewCell>
     </objects>
 </document>

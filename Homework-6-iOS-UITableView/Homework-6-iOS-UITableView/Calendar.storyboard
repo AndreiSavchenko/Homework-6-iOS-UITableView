@@ -18,21 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PDm-lU-g3t">
-                            <size key="itemSize" width="52" height="33"/>
-                            <size key="headerReferenceSize" width="50" height="51"/>
+                            <size key="itemSize" width="30" height="30"/>
+                            <size key="headerReferenceSize" width="50" height="40"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarCell" id="wnB-5z-gz2" customClass="CalendarCollectionViewCell" customModule="Homework_6_iOS_UITableView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="51" width="30" height="30"/>
+                                <rect key="frame" x="20" y="50" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-rD-Qoa">
-                                            <rect key="frame" x="11" y="31" width="8" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-rD-Qoa">
+                                            <rect key="frame" x="6" y="5" width="19" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -40,10 +40,8 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="JgJ-rD-Qoa" firstAttribute="top" secondItem="wnB-5z-gz2" secondAttribute="topMargin" constant="3" id="Ept-7r-aas"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="JgJ-rD-Qoa" secondAttribute="bottom" constant="3" id="XuQ-7C-7k0"/>
-                                    <constraint firstItem="JgJ-rD-Qoa" firstAttribute="leading" secondItem="wnB-5z-gz2" secondAttribute="leadingMargin" constant="3" id="jbb-g1-YGm"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="JgJ-rD-Qoa" secondAttribute="trailing" constant="3" id="tnE-Uw-utf"/>
+                                    <constraint firstItem="JgJ-rD-Qoa" firstAttribute="centerX" secondItem="wnB-5z-gz2" secondAttribute="centerX" id="Lhh-4X-V1p"/>
+                                    <constraint firstItem="JgJ-rD-Qoa" firstAttribute="centerY" secondItem="wnB-5z-gz2" secondAttribute="centerY" id="k5z-li-wbK"/>
                                 </constraints>
                                 <size key="customSize" width="30" height="30"/>
                                 <connections>
@@ -52,20 +50,20 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="f7T-eM-vNq" customClass="SectionHeaderView" customModule="Homework_6_iOS_UITableView" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Months Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJL-od-0Tk">
-                                    <rect key="frame" x="28" y="18" width="127.5" height="15"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Months Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJL-od-0Tk">
+                                    <rect key="frame" x="124" y="9" width="127.5" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" red="1" green="0.73248346880000004" blue="0.33656830780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="cJL-od-0Tk" firstAttribute="top" secondItem="f7T-eM-vNq" secondAttribute="topMargin" constant="10" id="pKP-x5-6rG"/>
-                                <constraint firstAttribute="bottomMargin" secondItem="cJL-od-0Tk" secondAttribute="bottom" constant="10" id="rFb-ji-HAd"/>
-                                <constraint firstItem="cJL-od-0Tk" firstAttribute="leading" secondItem="f7T-eM-vNq" secondAttribute="leadingMargin" constant="20" id="sPt-Jn-Tkf"/>
+                                <constraint firstItem="cJL-od-0Tk" firstAttribute="centerY" secondItem="f7T-eM-vNq" secondAttribute="centerY" id="8Yv-5x-yC2"/>
+                                <constraint firstItem="cJL-od-0Tk" firstAttribute="centerX" secondItem="f7T-eM-vNq" secondAttribute="centerX" id="qQ8-Ja-U1q"/>
                             </constraints>
                             <connections>
                                 <outlet property="monthsTitleLabel" destination="cJL-od-0Tk" id="7qH-CE-STq"/>
