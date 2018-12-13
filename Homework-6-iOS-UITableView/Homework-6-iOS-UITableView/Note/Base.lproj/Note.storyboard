@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJN-rQ-lmu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ga9-17-hG8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table Note View Controller-->
+        <!--Note main-->
         <scene sceneID="Fym-lo-x1n">
             <objects>
                 <viewController storyboardIdentifier="TableNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FJN-rQ-lmu" customClass="TableNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView1" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-rX-sBT">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нотатки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGw-ka-Lju">
-                                <rect key="frame" x="40" y="40" width="123" height="36"/>
+                                <rect key="frame" x="40" y="84" width="123" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="xTk-jJ-8pC"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUP-yJ-fFi">
-                                <rect key="frame" x="299" y="40" width="36" height="36"/>
+                                <rect key="frame" x="299" y="84" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="B9d-AU-QfC"/>
                                 </constraints>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-TO-Quz">
-                                <rect key="frame" x="15" y="96" width="345" height="556"/>
+                                <rect key="frame" x="15" y="140" width="345" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -71,6 +71,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tkk-fV-dSj"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Note main" id="zNL-4q-sPj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KtQ-kc-ry8">
+                            <connections>
+                                <segue destination="639-kW-DDq" kind="show" identifier="AddNote" id="GAk-Yb-NFU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noteTableView" destination="NfU-TO-Quz" id="T3T-LW-AxU"/>
                     </connections>
@@ -78,6 +85,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3C-1k-doX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16.800000000000001" y="29.23538230884558"/>
+        </scene>
+        <!--Add Note-->
+        <scene sceneID="Lbr-Tb-oll">
+            <objects>
+                <viewController title="Add Note" id="639-kW-DDq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9t-oo-Rzc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-tG-Uax">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FJN-rQ-lmu" id="HwM-UL-hzE"/>
+                                    <outlet property="delegate" destination="FJN-rQ-lmu" id="Yn8-KF-p7i"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H6u-Vq-mKh" firstAttribute="trailing" secondItem="p1h-tG-Uax" secondAttribute="trailing" id="HS7-5E-ksg"/>
+                            <constraint firstItem="p1h-tG-Uax" firstAttribute="leading" secondItem="H6u-Vq-mKh" secondAttribute="leading" id="UKF-Bx-8aU"/>
+                            <constraint firstItem="H6u-Vq-mKh" firstAttribute="bottom" secondItem="p1h-tG-Uax" secondAttribute="bottom" id="mTW-f9-80v"/>
+                            <constraint firstItem="p1h-tG-Uax" firstAttribute="top" secondItem="H6u-Vq-mKh" secondAttribute="top" id="rrQ-H4-kLk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H6u-Vq-mKh"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Note" leftItemsSupplementBackButton="YES" id="SeS-WQ-Wnn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9i3-0K-l3V"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMw-zY-Vvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="24"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9s0-nV-g8y">
+            <objects>
+                <navigationController id="Ga9-17-hG8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gfe-jV-jG8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FJN-rQ-lmu" kind="relationship" relationship="rootViewController" id="7JA-dn-i2s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcM-eW-xys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-754" y="29"/>
         </scene>
     </scenes>
     <resources>
