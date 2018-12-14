@@ -194,7 +194,7 @@
         <!--Add Note-->
         <scene sceneID="Lbr-Tb-oll">
             <objects>
-                <viewController title="Add Note" id="639-kW-DDq" sceneMemberID="viewController">
+                <viewController title="Add Note" useStoryboardIdentifierAsRestorationIdentifier="YES" id="639-kW-DDq" customClass="AddNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9t-oo-Rzc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,9 +289,19 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Note" leftItemsSupplementBackButton="YES" id="SeS-WQ-Wnn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9i3-0K-l3V"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9i3-0K-l3V">
+                            <connections>
+                                <action selector="saveBarButtonItem:" destination="639-kW-DDq" id="jNX-Ta-fjV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="completedSwitch" destination="AxN-Ei-bs7" id="3qw-PU-neU"/>
+                        <outlet property="dateDatePicker" destination="9JT-G2-SxC" id="bSb-6k-epL"/>
+                        <outlet property="descriptionTextView" destination="hOG-UJ-jwa" id="lEF-4Q-6Yo"/>
+                        <outlet property="titleTextField" destination="iNb-3p-tf4" id="14q-fY-yJq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMw-zY-Vvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
