@@ -18,7 +18,6 @@
 		4DCCB25521B9641900DFC019 /* CalendarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCCB25421B9641900DFC019 /* CalendarCollectionViewController.swift */; };
 		4DCCB25721B964B200DFC019 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCCB25621B964B200DFC019 /* CalendarCollectionViewCell.swift */; };
 		4DCCB25921B9743A00DFC019 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCCB25821B9743A00DFC019 /* SectionHeaderView.swift */; };
-		4DF4A7B921C2915C0063FCCB /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A7B821C2915C0063FCCB /* Initial.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		4DCCB25421B9641900DFC019 /* CalendarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewController.swift; sourceTree = "<group>"; };
 		4DCCB25621B964B200DFC019 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DCCB25821B9743A00DFC019 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		4DF4A7B821C2915C0063FCCB /* Initial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 				4D6CA3EB21B59BE90020FDCF /* NoteXibTableViewCell.xib */,
 				4D6CA3DA21B1FC640020FDCF /* TableNoteViewController.swift */,
 				4D6CA3DC21B1FC640020FDCF /* Note.storyboard */,
-				4DF4A7B821C2915C0063FCCB /* Initial.storyboard */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -162,7 +159,6 @@
 				4D6CA3E321B1FC660020FDCF /* LaunchScreen.storyboard in Resources */,
 				4D6CA3ED21B59BE90020FDCF /* NoteXibTableViewCell.xib in Resources */,
 				4D6CA3E021B1FC660020FDCF /* Assets.xcassets in Resources */,
-				4DF4A7B921C2915C0063FCCB /* Initial.storyboard in Resources */,
 				4DCCB25121B95F1800DFC019 /* Calendar.storyboard in Resources */,
 				4D6CA3DE21B1FC640020FDCF /* Note.storyboard in Resources */,
 			);

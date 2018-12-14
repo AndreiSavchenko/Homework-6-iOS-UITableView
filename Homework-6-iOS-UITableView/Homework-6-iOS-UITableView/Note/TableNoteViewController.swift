@@ -22,7 +22,7 @@ class TableNoteViewController: UIViewController {
     let descriptionTipsArr: [String] = ["Лин, послушай старших: оставь искусство! Действуй по плану «А» — хватайся за первого попавшегося богача.",
                                         "Ой-ой-ой, стоит только указать кому-нибудь на прореху в его мировоззрении, и он сразу обижается.",
                                         "— И не вини себя.\n— А я и не виню.\n— Значит, ты слушал меня невнимательно."]
-    let sectionNote: [String] = ["Все нотатки", "Выбранные"]
+    let sectionNote: [String] = ["New", "Completed"]
     
     struct Note {
         var title = String()
