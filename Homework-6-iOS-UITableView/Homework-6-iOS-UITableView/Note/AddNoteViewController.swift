@@ -29,11 +29,9 @@ class AddNoteViewController: UIViewController {
         return selectedDate
     }
     
-    struct Note {
-        var title = String()
-        var description = String()
-        var createdDate = String()
-        var completed = Bool()
+    @IBAction func goBackToOneButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToTableNoteVC", sender: self)
+//        print("11111111111111sender")
     }
     
     @IBAction func saveBarButtonItem(_ sender: UIBarButtonItem) {

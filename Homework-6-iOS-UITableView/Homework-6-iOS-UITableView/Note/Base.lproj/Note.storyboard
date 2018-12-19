@@ -285,10 +285,11 @@
                         <outlet property="dateDatePicker" destination="9JT-G2-SxC" id="bSb-6k-epL"/>
                         <outlet property="descriptionTextView" destination="hOG-UJ-jwa" id="lEF-4Q-6Yo"/>
                         <outlet property="titleTextField" destination="iNb-3p-tf4" id="14q-fY-yJq"/>
-                        <segue destination="Ga9-17-hG8" kind="show" identifier="toMain" id="IhS-jm-CJr"/>
+                        <segue destination="H1l-Nh-S3D" kind="unwind" identifier="unwindToTableNoteVC" unwindAction="unwindToTableNoteVCWithSegue:" id="hwl-1R-cJ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMw-zY-Vvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="H1l-Nh-S3D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="847" y="29"/>
         </scene>

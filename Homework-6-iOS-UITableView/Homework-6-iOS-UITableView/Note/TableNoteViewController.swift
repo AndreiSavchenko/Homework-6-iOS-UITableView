@@ -23,16 +23,11 @@ class TableNoteViewController: UIViewController {
 //                                        "Ой-ой-ой, стоит только указать кому-нибудь на прореху в его мировоззрении, и он сразу обижается.",
 //                                        "— И не вини себя.\n— А я и не виню.\n— Значит, ты слушал меня невнимательно."]
     
-    
+    @IBAction func unwindToTableNoteVC (segue: UIStoryboardSegue) {
+       print("11111111111")
+    }
     
     let sectionNote: [String] = ["New", "Completed"]
-//
-    struct Note {
-        var title = String()
-        var description = String()
-        var createdDate = String()
-        var completed = Bool()
-    }
     
     var newNoteArr = [Note]()
     var selectedNoteArr = [Note]()
