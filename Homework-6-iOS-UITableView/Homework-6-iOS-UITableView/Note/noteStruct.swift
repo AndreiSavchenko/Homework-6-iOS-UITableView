@@ -9,8 +9,17 @@
 import Foundation
 
 struct Note {
-    var title = String()
-    var description = String()
-    var createdDate = String()
-    var completed = Bool()
+    var title: String
+    var description: String
+    var createdDate: String
+    var completed: Bool
+    
+    init(title: String, description: String, createdDate: String, completed: Bool) {
+        self.title = title
+        self.description = description
+        self.createdDate = createdDate
+        self.completed = completed
+    }
 }
+
+//var allNoteArr = [Note]()

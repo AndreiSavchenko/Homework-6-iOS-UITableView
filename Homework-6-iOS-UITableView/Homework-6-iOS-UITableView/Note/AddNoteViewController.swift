@@ -19,8 +19,6 @@ class AddNoteViewController: UIViewController {
     
     @IBOutlet weak var completedSwitch: UISwitch!
     
-    
-    
     func datePicker() -> String {
         dateDatePicker.datePickerMode = UIDatePicker.Mode.date
         let dateFormatter = DateFormatter()
@@ -29,18 +27,14 @@ class AddNoteViewController: UIViewController {
         return selectedDate
     }
     
-    @IBAction func goBackToOneButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToTableNoteVC", sender: self)
-//        print("11111111111111sender")
-    }
-    
     @IBAction func saveBarButtonItem(_ sender: UIBarButtonItem) {
-        newNote = Note.init(title: titleTextField.text!,
-                            description: descriptionTextView.text,
-                            createdDate: datePicker(),
-                            completed: completedSwitch.isOn)
-        print(newNote as Any)
-        navigationController?.popToRootViewController(animated: true)
+//        newNote = Note.init(title: titleTextField.text!,
+//                            description: descriptionTextView.text,
+//                            createdDate: datePicker(),
+//                            completed: completedSwitch.isOn)
+//        print(newNote as Any)
+        
+//        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -52,10 +46,24 @@ class AddNoteViewController: UIViewController {
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toMain" {
-//            let controller = (segue.destination as? UINavigationController)?.topViewController as? TableNoteViewController
-//            controller?.newNoteArr[]
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMain" {
+            let newNote = Note.init(title: titleTextField.text!,
+                                    description: descriptionTextView.text,
+                                    createdDate: datePicker(),
+                                    completed: completedSwitch.isOn)
+            print(newNote)
+            let controller = segue.destination as!  TableNoteViewController
+            if newNote.completed {
+                print("00000000000")
+                controller.selectedNoteArr.insert(newNote, at: 0)
+            } else {
+                print("111111111111")
+                controller.newNoteArr.insert(newNote, at: 0)
+            }
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+        }
+    }
+    
 }

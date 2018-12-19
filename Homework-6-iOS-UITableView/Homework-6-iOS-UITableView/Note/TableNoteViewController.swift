@@ -23,14 +23,11 @@ class TableNoteViewController: UIViewController {
 //                                        "Ой-ой-ой, стоит только указать кому-нибудь на прореху в его мировоззрении, и он сразу обижается.",
 //                                        "— И не вини себя.\n— А я и не виню.\n— Значит, ты слушал меня невнимательно."]
     
-    @IBAction func unwindToTableNoteVC (segue: UIStoryboardSegue) {
-       print("11111111111")
-    }
-    
     let sectionNote: [String] = ["New", "Completed"]
     
     var newNoteArr = [Note]()
     var selectedNoteArr = [Note]()
+    
     
 //    func dateCurrent() -> String {
 //        let date = NSDate()
@@ -75,6 +72,8 @@ class TableNoteViewController: UIViewController {
         let cellNib = UINib(nibName: "NoteXibTableViewCell", bundle: nil)
         noteTableView.register(cellNib, forCellReuseIdentifier: NoteXibTableViewCell.reuseIdentifier)
         noteTableView.reloadData()
+        print("999999999999")
+        print(newNoteArr)
     }
 }
 
@@ -112,6 +111,8 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         var theArr: Note
         if indexPath.section == 0 {
             theArr = newNoteArr[indexPath.row]
+            print(888888)
+            print(theArr)
         } else {
             theArr = selectedNoteArr[indexPath.row]
         }
