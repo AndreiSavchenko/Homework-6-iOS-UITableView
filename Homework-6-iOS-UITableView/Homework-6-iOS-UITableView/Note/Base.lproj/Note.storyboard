@@ -31,20 +31,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUP-yJ-fFi">
-                                <rect key="frame" x="299" y="84" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="B9d-AU-QfC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButton:" destination="FJN-rQ-lmu" eventType="touchUpInside" id="mjg-fX-gl4"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-TO-Quz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-TO-Quz">
                                 <rect key="frame" x="15" y="140" width="345" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,21 +44,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="NfU-TO-Quz" secondAttribute="trailing" constant="15" id="8fG-wr-n64"/>
-                            <constraint firstItem="NfU-TO-Quz" firstAttribute="top" secondItem="fUP-yJ-fFi" secondAttribute="bottom" constant="20" id="Zs8-a0-LGg"/>
                             <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="oP4-rX-sBT" secondAttribute="trailing" id="a4a-B6-WFX"/>
-                            <constraint firstItem="Tkk-fV-dSj" firstAttribute="trailing" secondItem="fUP-yJ-fFi" secondAttribute="trailing" constant="40" id="ajE-I5-oUz"/>
                             <constraint firstItem="Tkk-fV-dSj" firstAttribute="bottom" secondItem="oP4-rX-sBT" secondAttribute="bottom" id="cfO-eJ-11X"/>
                             <constraint firstItem="Tkk-fV-dSj" firstAttribute="bottom" secondItem="NfU-TO-Quz" secondAttribute="bottom" constant="15" id="cnM-Yn-Go9"/>
                             <constraint firstItem="hGw-ka-Lju" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" constant="40" id="dnf-Qi-gUx"/>
                             <constraint firstItem="oP4-rX-sBT" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" id="fj0-HJ-Ucc"/>
                             <constraint firstItem="NfU-TO-Quz" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" constant="15" id="h5I-jC-wNQ"/>
                             <constraint firstItem="oP4-rX-sBT" firstAttribute="leading" secondItem="Tkk-fV-dSj" secondAttribute="leading" id="jrn-r0-9Sb"/>
-                            <constraint firstItem="fUP-yJ-fFi" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" constant="20" id="lS6-Jy-JUp"/>
                             <constraint firstItem="hGw-ka-Lju" firstAttribute="top" secondItem="Tkk-fV-dSj" secondAttribute="top" constant="20" id="yvG-9G-dYR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tkk-fV-dSj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" id="zNL-4q-sPj">
+                    <navigationItem key="navigationItem" title="Main" largeTitleDisplayMode="always" id="zNL-4q-sPj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KtQ-kc-ry8">
                             <connections>
                                 <segue destination="639-kW-DDq" kind="show" identifier="addNote" id="GAk-Yb-NFU"/>
@@ -194,7 +178,7 @@
         <!--Add Note-->
         <scene sceneID="Lbr-Tb-oll">
             <objects>
-                <viewController title="Add Note" useStoryboardIdentifierAsRestorationIdentifier="YES" id="639-kW-DDq" customClass="AddNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" title="Add Note" useStoryboardIdentifierAsRestorationIdentifier="YES" id="639-kW-DDq" customClass="AddNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9t-oo-Rzc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +225,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9JT-G2-SxC">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9JT-G2-SxC">
                                 <rect key="frame" x="20" y="372" width="335" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="HjJ-yK-xTF"/>
@@ -288,7 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="H6u-Vq-mKh"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Note" leftItemsSupplementBackButton="YES" id="SeS-WQ-Wnn">
+                    <navigationItem key="navigationItem" title="Add Note" id="SeS-WQ-Wnn">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="9i3-0K-l3V">
                             <connections>
                                 <action selector="saveBarButtonItem:" destination="639-kW-DDq" id="jNX-Ta-fjV"/>
@@ -301,11 +285,12 @@
                         <outlet property="dateDatePicker" destination="9JT-G2-SxC" id="bSb-6k-epL"/>
                         <outlet property="descriptionTextView" destination="hOG-UJ-jwa" id="lEF-4Q-6Yo"/>
                         <outlet property="titleTextField" destination="iNb-3p-tf4" id="14q-fY-yJq"/>
+                        <segue destination="Ga9-17-hG8" kind="show" identifier="toMain" id="IhS-jm-CJr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMw-zY-Vvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781.60000000000002" y="28.335832083958024"/>
+            <point key="canvasLocation" x="847" y="29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9s0-nV-g8y">
