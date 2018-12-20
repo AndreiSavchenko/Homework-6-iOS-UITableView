@@ -10,70 +10,50 @@ import UIKit
 
 class TableNoteViewController: UIViewController {
     
-    @IBOutlet weak var noteTableView: UITableView!
-    
-//    let titleArr: [String] = ["Альф про любовь","Альф про еду","Советы от Альфа"]
-//    let descriptionLoveArr: [String] = ["Ей пришла в голову глупейшая мысль, что она меня больше не любит.",
-//                                        "Боюсь, тебе придется любить меня до гроба.",
-//                                        "Я вас, люди, не понимаю. Если вы любите кого-то, вы боитесь, чтоб он узнал об этом. Но, когда оказывается, что вы ему тоже небезразличны, вы жалеете о потерянном времени. А если завтра ваша планета взорвется?"]
-//    let descriptionFoodArr: [String] = ["Твои веки тяжелеют... Ты засыпаешь... Ты больше не кот... Ты бублик.",
-//                                        "Овощи — это не еда, это то, что едят с едой!",
-//                                        "Вы не любите кошек? Да вы просто не умеете их готовить!"]
-//    let descriptionTipsArr: [String] = ["Лин, послушай старших: оставь искусство! Действуй по плану «А» — хватайся за первого попавшегося богача.",
-//                                        "Ой-ой-ой, стоит только указать кому-нибудь на прореху в его мировоззрении, и он сразу обижается.",
-//                                        "— И не вини себя.\n— А я и не виню.\n— Значит, ты слушал меня невнимательно."]
-    
     let sectionNote: [String] = ["New", "Completed"]
-    
-    var newNoteArr = [Note]()
+    @IBOutlet weak var noteTableView: UITableView!
+    var newNoteArr: [Note] = []
     var selectedNoteArr = [Note]()
     
     
-//    func dateCurrent() -> String {
-//        let date = NSDate()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd.MM hh:mm:ss"
-//        return dateFormatter.string(from: date as Date)
-//    }
-    
-//    @IBAction func addButton(_ sender: UIButton) {
-//
-//        let Rand = Int.random(in: 0...2)
-//        var titleInNote, dateInNote, descriptionInNote: String
-//
-//        titleInNote = titleArr[Rand]
-//        dateInNote = dateCurrent()
-//
-//        switch Rand {
-//        case 1:
-//            descriptionInNote = descriptionFoodArr[Rand]
-//        case 2:
-//            descriptionInNote = descriptionTipsArr[Rand]
-//        default:
-//            descriptionInNote = descriptionLoveArr[Rand]
-//        }
-//
-//        let oneNote = Note.init(title: titleInNote, createdDate: dateInNote, description: descriptionInNote)
-//
-//        self.addAllNote(oneNote)
-//        noteTableView.reloadData()
-//    }
-//
-//    func addAllNote(_ oneNote: TableNoteViewController.Note) {
-//        let index = 0
-//        newNoteArr.insert(oneNote, at: index)
-//    }
-    
-    
+    //var newNoteForArr = Note.init(completed: false)
+    var allNewNote: [Note] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("---viewDidLoad начало---------------")
+        print("allNewNote.count) = \(allNewNote.count)")
+        print("newNoteArr = \(newNoteArr)")
+        print("newNoteArr.count = \(newNoteArr.count)")
+        let indexAllNewNote: Int = allNewNote.count-1
+        
+        if indexAllNewNote >= 0 {
+            if allNewNote[indexAllNewNote].completed {
+                let indexSelected = selectedNoteArr.count
+                selectedNoteArr.insert(allNewNote[indexAllNewNote], at: indexSelected)
+            } else {
+                let indexNew = 0//newNoteArr.count
+                print("---перед инсерт---------------")
+                print("allNewNote.count) = \(allNewNote.count)")
+                print("newNoteArr = \(newNoteArr)")
+                print("newNoteArr.count = \(newNoteArr.count)")
+                newNoteArr.insert(allNewNote[indexAllNewNote], at: indexNew)
+                print("---после инсерт---------------")
+                print("allNewNote.count) = \(allNewNote.count)")
+                print("newNoteArr = \(newNoteArr)")
+                print("newNoteArr.count = \(newNoteArr.count)")
+            }
+        }
+        
         
         let cellNib = UINib(nibName: "NoteXibTableViewCell", bundle: nil)
         noteTableView.register(cellNib, forCellReuseIdentifier: NoteXibTableViewCell.reuseIdentifier)
         noteTableView.reloadData()
-        print("999999999999")
-        print(newNoteArr)
+        print("---viewDidLoad конец, после селла----------------")
+        print("allNewNote.count) = \(allNewNote.count)")
+        print("newNoteArr = \(newNoteArr)")
+        print("newNoteArr.count = \(newNoteArr.count)")
+        
     }
 }
 
@@ -83,6 +63,8 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            print("---33333---------------")
+            print("newNoteArr = \(newNoteArr)")
             return newNoteArr.count
         } else {
             return selectedNoteArr.count
@@ -110,9 +92,9 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         
         var theArr: Note
         if indexPath.section == 0 {
+            print("---44444---------------")
+            print("newNoteArr = \(newNoteArr)")
             theArr = newNoteArr[indexPath.row]
-            print(888888)
-            print(theArr)
         } else {
             theArr = selectedNoteArr[indexPath.row]
         }
@@ -138,14 +120,54 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            selectedNoteArr.append(newNoteArr[indexPath.row])
-            newNoteArr.remove(at: indexPath.row)
-        } else {
-            newNoteArr.append(selectedNoteArr[indexPath.row])
-            selectedNoteArr.remove(at: indexPath.row)
-        }
-        noteTableView.reloadData()
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "viewNote" {
+//            if let IndexPath = noteTableView.indexPathForSelectedRow,
+//                let titl = sender as? UITextField {
+//                let titl = titl[IndexPath.row] as! UITextField
+//                let controller = (segue.destination as! UINavigationController).topViewController as! ViewNoteViewController
+//                controller.editNote.title = titl
+//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+    
+//                let object = sender as? UITextField {
+//                let object = object[IndexPath.row] as! UITextField
+//                let controller = (segue.destination as! UINavigationController).topViewController as! ViewNoteViewController
+//                controller.editNote = object
+//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+//        }
+//    }
+    
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let storyboard = UIStoryboard(name: "View Note", bundle: nil)
+//        let ViewController = storyboard.instantiateViewController(withIdentifier: "viewNote") as? UINavigationController
+//        let controller = ViewController?.topViewController as! ViewNoteViewController
+//        
+//        
+//        
+//        controller.titleTextField.text = 
+//    }
+//            object[indexPath.row] as? UITextField
+
+
+//        let object = object[indexPath.row] as? Note
+
+
+
+
+//        if indexPath.section == 0 {
+//            selectedNoteArr.append(newNoteArr[indexPath.row])
+//            newNoteArr.remove(at: indexPath.row)
+//        } else {
+//            newNoteArr.append(selectedNoteArr[indexPath.row])
+//            selectedNoteArr.remove(at: indexPath.row)
+//        }
+//        noteTableView.reloadData()
+//    }
 }

@@ -53,14 +53,10 @@ class AddNoteViewController: UIViewController {
                                     createdDate: datePicker(),
                                     completed: completedSwitch.isOn)
             print(newNote)
-            let controller = segue.destination as!  TableNoteViewController
-            if newNote.completed {
-                print("00000000000")
-                controller.selectedNoteArr.insert(newNote, at: 0)
-            } else {
-                print("111111111111")
-                controller.newNoteArr.insert(newNote, at: 0)
-            }
+            let controller = segue.destination as! TableNoteViewController
+            
+            let indexNew = controller.allNewNote.count
+            controller.allNewNote.insert(newNote, at: indexNew)
             controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
         }

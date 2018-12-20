@@ -14,12 +14,13 @@ struct Note {
     var createdDate: String
     var completed: Bool
     
-    init(title: String, description: String, createdDate: String, completed: Bool) {
+    init(title: String = "First title",
+         description: String = "First description",
+         createdDate: String = "First date",
+         completed: Bool = false) {
         self.title = title
         self.description = description
         self.createdDate = createdDate
         self.completed = completed
     }
 }
-
-//var allNoteArr = [Note]()

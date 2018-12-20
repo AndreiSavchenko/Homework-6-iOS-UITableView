@@ -75,7 +75,7 @@
         <!--View Note-->
         <scene sceneID="7yU-Xm-ppt">
             <objects>
-                <viewController title="View Note" id="6WN-Sh-kud" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewNoteViewController" title="View Note" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6WN-Sh-kud" customClass="ViewNoteViewController" customModule="Homework_6_iOS_UITableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1WP-ns-gKY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,6 +171,12 @@
                     <navigationItem key="navigationItem" title="View Note" leftItemsSupplementBackButton="YES" id="df2-3L-lwQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DHF-Bw-pPn"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="completedSwitch" destination="PYW-NG-gO1" id="pNv-jW-vJO"/>
+                        <outlet property="dateDatePicker" destination="2aW-vu-3bt" id="PTr-N1-AFL"/>
+                        <outlet property="descriptionTextView" destination="83D-g9-2w4" id="XUF-94-BmZ"/>
+                        <outlet property="titleTextField" destination="p2m-FU-tMK" id="sCt-0d-VJE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdp-G3-QMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,6 +333,7 @@
         <image name="backgroundView1" width="192" height="288"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GAk-Yb-NFU"/>
         <segue reference="go7-wB-Sbv"/>
     </inferredMetricsTieBreakers>
 </document>
