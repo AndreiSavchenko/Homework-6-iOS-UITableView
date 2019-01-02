@@ -13,47 +13,50 @@ class TableNoteViewController: UIViewController {
     let sectionNote: [String] = ["New", "Completed"]
     @IBOutlet weak var noteTableView: UITableView!
     var newNoteArr: [Note] = []
-    var selectedNoteArr = [Note]()
+    var selectedNoteArr: [Note] = []
     
-    
-    //var newNoteForArr = Note.init(completed: false)
-    var allNewNote: [Note] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("---viewDidLoad начало---------------")
-        print("allNewNote.count) = \(allNewNote.count)")
-        print("newNoteArr = \(newNoteArr)")
-        print("newNoteArr.count = \(newNoteArr.count)")
-        let indexAllNewNote: Int = allNewNote.count-1
-        
-        if indexAllNewNote >= 0 {
-            if allNewNote[indexAllNewNote].completed {
-                let indexSelected = selectedNoteArr.count
-                selectedNoteArr.insert(allNewNote[indexAllNewNote], at: indexSelected)
-            } else {
-                let indexNew = 0//newNoteArr.count
-                print("---перед инсерт---------------")
-                print("allNewNote.count) = \(allNewNote.count)")
-                print("newNoteArr = \(newNoteArr)")
-                print("newNoteArr.count = \(newNoteArr.count)")
-                newNoteArr.insert(allNewNote[indexAllNewNote], at: indexNew)
-                print("---после инсерт---------------")
-                print("allNewNote.count) = \(allNewNote.count)")
-                print("newNoteArr = \(newNoteArr)")
-                print("newNoteArr.count = \(newNoteArr.count)")
-            }
-        }
-        
+        self.newNoteArr = [Note.init(title: "tit_1", description: "des_2", createdDate: "02 Jan 2019 11:20:00", completed: false)]
         
         let cellNib = UINib(nibName: "NoteXibTableViewCell", bundle: nil)
         noteTableView.register(cellNib, forCellReuseIdentifier: NoteXibTableViewCell.reuseIdentifier)
         noteTableView.reloadData()
-        print("---viewDidLoad конец, после селла----------------")
-        print("allNewNote.count) = \(allNewNote.count)")
-        print("newNoteArr = \(newNoteArr)")
-        print("newNoteArr.count = \(newNoteArr.count)")
+    }
+    
+// Add new Note
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare identifier = add Note")
+        if segue.identifier == "addNote" {
+            let addController = segue.destination as! AddNoteViewController
+            addController.newSaveNote = { (note) in
+                print("prepare addController.newSaveNote \(note)")
+                if note.completed {
+                    self.selectedNoteArr.append(note)
+                    self.selectedNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+                } else {
+                    self.newNoteArr.append(note)
+                    self.newNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+                }
+                self.noteTableView.reloadData()
+            }
+        }
         
+//        if segue.identifier == "viewNote" {
+//            let viewController = segue.destination as! ViewNoteViewController
+//            viewController.editSaveNote = { (noteEdit) in
+//                print("prepare viewController.newSaveNote \(noteEdit)")
+//                if noteEdit.completed {
+//                    self.selectedNoteArr.append(noteEdit)
+//                    self.selectedNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+//                } else {
+//                    self.newNoteArr.append(noteEdit)
+//                    self.newNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+//                }
+//                self.noteTableView.reloadData()
+//            }
+//        }
     }
 }
 
@@ -63,8 +66,6 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            print("---33333---------------")
-            print("newNoteArr = \(newNoteArr)")
             return newNoteArr.count
         } else {
             return selectedNoteArr.count
@@ -92,8 +93,6 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         
         var theArr: Note
         if indexPath.section == 0 {
-            print("---44444---------------")
-            print("newNoteArr = \(newNoteArr)")
             theArr = newNoteArr[indexPath.row]
         } else {
             theArr = selectedNoteArr[indexPath.row]
@@ -120,54 +119,32 @@ extension TableNoteViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "viewNote" {
-//            if let IndexPath = noteTableView.indexPathForSelectedRow,
-//                let titl = sender as? UITextField {
-//                let titl = titl[IndexPath.row] as! UITextField
-//                let controller = (segue.destination as! UINavigationController).topViewController as! ViewNoteViewController
-//                controller.editNote.title = titl
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
-//            }
     
-//                let object = sender as? UITextField {
-//                let object = object[IndexPath.row] as! UITextField
-//                let controller = (segue.destination as! UINavigationController).topViewController as! ViewNoteViewController
-//                controller.editNote = object
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
-//            }
-//        }
-//    }
-    
-    
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let storyboard = UIStoryboard(name: "View Note", bundle: nil)
-//        let ViewController = storyboard.instantiateViewController(withIdentifier: "viewNote") as? UINavigationController
-//        let controller = ViewController?.topViewController as! ViewNoteViewController
-//        
-//        
-//        
-//        controller.titleTextField.text = 
-//    }
-//            object[indexPath.row] as? UITextField
-
-
-//        let object = object[indexPath.row] as? Note
-
-
-
-
-//        if indexPath.section == 0 {
-//            selectedNoteArr.append(newNoteArr[indexPath.row])
-//            newNoteArr.remove(at: indexPath.row)
-//        } else {
-//            newNoteArr.append(selectedNoteArr[indexPath.row])
-//            selectedNoteArr.remove(at: indexPath.row)
-//        }
-//        noteTableView.reloadData()
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Note", bundle: nil)
+        let editController = storyboard.instantiateViewController(withIdentifier: "ViewNoteViewController") as! ViewNoteViewController
+        
+        if indexPath.section == 0 {
+            editController.editNote = newNoteArr[indexPath.row]
+            newNoteArr.remove(at: indexPath.row)
+            noteTableView.reloadData()
+        } else {
+            editController.editNote = selectedNoteArr[indexPath.row]
+            selectedNoteArr.remove(at: indexPath.row)
+            noteTableView.reloadData()
+        }
+        navigationController?.pushViewController(editController, animated: true)
+        
+        editController.editSaveNote = { (noteEdit) in
+            print("didSelectRowAt editController.editSaveNote \(noteEdit)")
+            if noteEdit.completed {
+                self.selectedNoteArr.append(noteEdit)
+                self.selectedNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+            } else {
+                self.newNoteArr.append(noteEdit)
+                self.newNoteArr.sort(by: {$0.createdDate > $1.createdDate})
+            }
+        self.noteTableView.reloadData()
+        }
+    }
 }
